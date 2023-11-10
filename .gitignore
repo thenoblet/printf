@@ -1,4 +1,3 @@
-##ignore this
+##ignore these
 *main.c
-a
-b
+*.out
