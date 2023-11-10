@@ -28,6 +28,26 @@ int _write_str(const char *str)
 }
 
 /**
+ * _write_int - writes an integer to stdout
+ * @n: the integer to write
+ *
+ * Return: the number of character written
+ */
+int _write_int(int n)
+{
+	char buffer[12];
+	int lenght = snprintf(buffer, sizeof(buffer), "%d", n);
+
+	if (lenght < 0)
+	{
+		perror("snprintf");
+		return (0);
+	}
+
+	return (write(1, buffer, lenght));
+}
+
+/**
  * process_format - processes the format string and writes to stdout
  * @format: the format string
  * @args: the variable arguments list
@@ -42,7 +62,8 @@ int process_format(const char *format, va_list args)
 	while (*format)
 	{
 		if (*format == '%' && (*(format + 1) == 'c' ||
-		*(format + 1) == 's' || *(format + 1) == '%'))
+		*(format + 1) == 's' || *(format + 1) == '%' ||
+		*(format + 1) == 'd' || *format + 1 == 'i'))
 		{
 			switch (*(format + 1))
 			{
@@ -53,6 +74,10 @@ int process_format(const char *format, va_list args)
 				case 's':
 					str = va_arg(args, char *);
 					count += _write_str(str);
+					break;
+				case 'd':
+				case 'i':
+					count += _write_int(va_arg(args, int));
 					break;
 				default:
 					count += _write_char(*format);
