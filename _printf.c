@@ -28,5 +28,15 @@ int _printf(const char *format, ...)
 	char_count = process_format(&buffer, format, args);
 
 	va_end(args);
+	if (char_count == -1)
+	{
+		safefree(buffer.string);
+		return (-1);
+	}
+
+	write_string(buffer.string, char_count);
+
+	safefree(buffer.string);
+
 	return (char_count);
 }

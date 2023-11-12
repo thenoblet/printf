@@ -22,8 +22,14 @@ format_spec *format_spec_array(void)
 
 	/* array of format specifiers and their handlers funcs. */
 	format_spec specifiers[] = {
-		{'s', handle_str}
+		{'s', handle_str},
+		{'%', handle_percent},
+		{'d', handle_int},
+		{'i', handle_int},
+		{'c', handle_char},
 		/* TODO: add more specifiers and their handler funcs */
+		{'\0', NULL}
+
 	};
 
 	/* Cal specifiers array size */

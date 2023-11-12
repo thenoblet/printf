@@ -29,6 +29,11 @@ int process_format(string_buffer *buffer, const char *format, va_list args)
 			}
 
 			num_chars = get_func(format[i], spec, buffer, args);
+			if (num_chars == -1)
+			{
+				safefree(spec);
+				return (-1);
+			}
 			count += num_chars;
 		}
 		else
@@ -40,8 +45,6 @@ int process_format(string_buffer *buffer, const char *format, va_list args)
 	}
 
 	/* Write the processed string to stdout */
-	write_string(buffer->string, count);
-	safefree(buffer->string);
 	safefree(spec);
 
 	return (count);

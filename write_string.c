@@ -6,8 +6,8 @@
  * @str: The string to be written.
  * @len: The length of the string to write.
  *
- * This function writes the specified string to the standard output (stdout).
- * It utilizes the 'write' system call to output the string.
+ * This function writes the specified string to the standard output (stdout)
+ * using the 'write' system call with the file descriptor STDOUT_FILENO
  *
  * @param [1]: File descriptor for standard output (stdout).
  *
@@ -18,5 +18,5 @@
 
 void write_string(const char *str, size_t len)
 {
-	write(1, str, len);
+	write(STDOUT_FILENO, str, len);
 }

@@ -23,7 +23,8 @@ void append_char(string_buffer *buffer, char ch)
 
 		if (new_string == NULL)
 		{
-			return;
+			fprintf(stderr, "Memory allocation error in append_char\n");
+			exit(EXIT_FAILURE); /*error handling*/
 		}
 		buffer->string = new_string;
 	}

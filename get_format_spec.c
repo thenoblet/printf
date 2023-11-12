@@ -26,6 +26,10 @@ int get_func(const char specifier, format_spec *spec,
 			return (spec[i].func(&spec[i], buffer, args));
 		}
 	}
+	if (specifier == '%')
+	{
+		return (handle_percent(&spec[i], buffer, args));
+	}
 
 	append_char(buffer, '%');
 	append_char(buffer, specifier);

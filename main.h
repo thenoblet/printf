@@ -8,6 +8,7 @@
 
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
+#define STDOUT_FILENO 1
 
 /**
  * struct dynamic_string - Structure to hold a dynamic string
@@ -64,8 +65,12 @@ format_spec *format_spec_array();
 /* _printf function prototype */
 int _printf(const char *format, ...);
 
-/* string handling functions */
+/* specifier handling functions */
 int handle_str(const format_spec *spec, string_buffer *buffer, va_list args);
+int handle_percent(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_int(const format_spec *spec, string_buffer *buffer, va_list args);
+int handle_char(const format_spec *spec, string_buffer *buffer, va_list args);
 
 /* custom string functions */
 void *_memcpy(void *dest, const void *src, size_t n);

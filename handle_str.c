@@ -2,7 +2,7 @@
 
 
 /**
- * handle_str - Handles string format specifier.
+ * handle_str - Handles string format specifier '%s'.
  *
  * @spec: The format specifier information
  * @args: The va_list containing the variable arguments.
@@ -16,21 +16,20 @@
  *  Return: Returns the number of characters added to the buffer.
  */
 
-int handle_str(__attribute__((unused)) const format_spec * spec,
-		string_buffer *buffer, va_list args)
+int handle_str(const format_spec *spec, string_buffer *buffer, va_list args)
 {
-	char *str = va_arg(args, char *);
-	int char_count = 0;
-
+	char *str;
+	UNUSED(spec);
+	
+	str = va_arg(args, char *);
 	if (str)
 	{
 		append_string(buffer, str);
-		char_count = _strlen(str);
+		return (_strlen(str));
 	}
 	else
 	{
 		append_string(buffer, "(null)");
+		return (_strlen("(null)"));
 	}
-
-	return (char_count);
 }
