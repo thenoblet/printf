@@ -14,12 +14,17 @@ int _printf(const char *format, ...)
 	string_buffer buffer;
 
 	if (!format)
+	{
 		return (-1);
+	}
 
+	/* process variable arguments list */
 	va_start(args, format);
 
+	/* Declare a buffer to store the formatted string */
 	init_buffer(&buffer);
 
+	/* Process format string and store the result in the buffer */
 	char_count = process_format(&buffer, format, args);
 
 	va_end(args);
