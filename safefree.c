@@ -6,8 +6,8 @@
  *
  * @ptr: A pointer to the pointer to be freed.
  *
- * Description: This function takes a pointer to a pointer and 
- * frees the memory it points to, then sets the original pointer to 
+ * Description: This function takes a pointer to a pointer and
+ * frees the memory it points to, then sets the original pointer to
  * NULL to avoid dangling pointers.
  *
  * Note: explicitly cast the pointer type to void when you call `_free`.
