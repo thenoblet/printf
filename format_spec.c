@@ -23,8 +23,7 @@ format_spec *format_spec_array(void)
 	/* array of format specifiers and their handlers funcs. */
 	format_spec specifiers[] = {
 		{'s', handle_str}
-
-TODO: Add more specifiers and their handlers as needed
+		/* TODO: add more specifiers and their handler funcs */
 	};
 
 	/* Cal specifiers array size */
