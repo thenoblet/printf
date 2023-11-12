@@ -16,7 +16,8 @@
  *  Return: Returns the number of characters added to the buffer.
  */
 
-int handle_str(__attribute__((unused))const format_spec *spec, string_buffer *buffer, va_list args)
+int handle_str(__attribute__((unused)) const format_spec * spec,
+		string_buffer *buffer, va_list args)
 {
 	char *str = va_arg(args, char *);
 	int char_count = 0;
