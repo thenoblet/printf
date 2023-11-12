@@ -14,7 +14,7 @@
 void *_realloc(void *ptr, size_t old_size, size_t new_size)
 {
 	void *newMem;
-	size_t copysize;
+	size_t copySize;
 
 	if (new_size == old_size)
 	{
@@ -38,7 +38,7 @@ void *_realloc(void *ptr, size_t old_size, size_t new_size)
 		copySize = (old_size < new_size) ? old_size : new_size;
 
 		/* copy content from old memory to new alloc'ed. memory */
-		_memcpy(newMem, ptr, min_size);
+		_memcpy(newMem, ptr, copySize);
 
 		free(ptr);
 	}
