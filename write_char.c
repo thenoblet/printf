@@ -10,5 +10,13 @@
 
 int write_char(char c)
 {
-	return (write(STDOUT_FILENO, &c, 1));
+	int ret;
+
+	ret = write(STDOUT_FILENO, &c, 1);
+	if (ret < 0)
+	{
+		return (-1);
+	}
+
+	return (ret);
 }

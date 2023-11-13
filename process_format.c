@@ -82,9 +82,8 @@ int lone_percent(const char *format)
 {
 	size_t i = 0;
 
-	/* Handle lone '%' as format string */
-	if ((!valid_specifier(format[i]) && format[i + 1] != '\0')
-			|| format[i] != '\0')
+	if ((!valid_specifier(format[i]) && format[i + 1] != '\0') || format[i]
+				!= '\0')
 	{
 		return (-1);
 	}
