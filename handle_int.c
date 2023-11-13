@@ -9,7 +9,7 @@
  *
  * Return: The number of characters added to the buffer.
  */
-int handle_int(__attribute__((unused)) const format_spec *spec,
+int handle_int(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, va_list args)
 {
 	int num = va_arg(args, int);
@@ -20,7 +20,7 @@ int handle_int(__attribute__((unused)) const format_spec *spec,
 	{
 		return (0);
 	}
-	
+
 	append_string(buffer, num_str);
 	return (length);
 }

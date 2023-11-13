@@ -12,7 +12,7 @@
  *
  * Return: The number of characters added to the buffer.
  */
-int handle_percent(__attribute__((unused)) const format_spec *spec,
+int handle_percent(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, __attribute__((unused)) va_list args)
 {
 	append_char(buffer, '%');

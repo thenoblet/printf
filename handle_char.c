@@ -9,7 +9,7 @@
  *
  * Return: The number of characters added to the buffer.
  */
-int handle_char(__attribute__((unused)) const format_spec *spec,
+int handle_char(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, va_list args)
 {
 	char c = va_arg(args, int);
