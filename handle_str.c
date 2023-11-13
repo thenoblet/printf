@@ -21,7 +21,7 @@ int handle_str(__attribute__((unused)) const format_spec * spec, string_buffer
 {
 	char *str = va_arg(args, char *);
 	int char_count, length;
-	
+
 	length = buffer->length;
 
 	if (str)
