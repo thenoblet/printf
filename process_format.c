@@ -16,7 +16,6 @@ int process_format(string_buffer *buffer, const char *format, va_list args)
 
 	if (spec == NULL)
 		return (-1);
-
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -45,12 +44,10 @@ int process_format(string_buffer *buffer, const char *format, va_list args)
 		}
 		i++;
 	}
-
 	/* Write the processed string to stdout */
 	write_string(buffer->string, count);
 	safefree(buffer->string);
 	safefree(spec);
-
 	return (count);
 }
 
