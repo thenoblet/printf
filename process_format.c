@@ -2,6 +2,7 @@
 
 /**
  * process_format - Processes a format string and writes it to stdout.
+ *
  * @buffer: The string buffer to hold the processed format string.
  * @format: The format string to be processed.
  * @args: The variable argument list.
@@ -10,7 +11,7 @@
  */
 int process_format(string_buffer *buffer, const char *format, va_list args)
 {
-	int i = 0, num_chars, count = 0;
+	int i = 0, num_chars = 0, count = 0;
 
 	format_spec *spec = format_spec_array();
 
