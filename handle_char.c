@@ -12,9 +12,13 @@
 int handle_char(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, va_list args)
 {
+	int char_count;
+	size_t length = buffer->length;
 	char c = va_arg(args, int);
 
 	append_char(buffer, c);
 
-	return (1);
+	char_count = buffer->length - length;
+
+	return (char_count);
 }

@@ -20,16 +20,20 @@ int handle_str(__attribute__((unused)) const format_spec * spec, string_buffer
 		*buffer, va_list args)
 {
 	char *str = va_arg(args, char *);
-	int char_count = 0;
+	int char_count, length;
+	
+	length = buffer->length;
 
 	if (str)
 	{
 		append_string(buffer, str);
-		char_count = _strlen(str);
 	}
 	else
 	{
 		append_string(buffer, "(null)");
 	}
+
+	char_count = buffer->length - length;
+
 	return (char_count);
 }
