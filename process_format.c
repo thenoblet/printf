@@ -22,6 +22,13 @@ int process_format(string_buffer *buffer, const char *format, va_list args)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == '\0')
+			{
+				/*Handle a lone percent sign*/
+				append_char(buffer, '%');
+				count++;
+				break;
+			}
 			if (lone_percent(&format[i]) == -1)
 			{
 				safefree(spec);
@@ -29,11 +36,6 @@ int process_format(string_buffer *buffer, const char *format, va_list args)
 			}
 
 			num_chars = get_func(format[i], spec, buffer, args);
-			if (num_chars == -1)
-			{
-				safefree(spec);
-				return (-1);
-			}
 			count += num_chars;
 		}
 		else
@@ -45,6 +47,8 @@ int process_format(string_buffer *buffer, const char *format, va_list args)
 	}
 
 	/* Write the processed string to stdout */
+	write_string(buffer->string, count);
+	safefree(buffer->string);
 	safefree(spec);
 
 	return (count);
@@ -80,12 +84,8 @@ int valid_specifier(char ch)
  */
 int lone_percent(const char *format)
 {
-	size_t i = 0;
-
-	if ((!valid_specifier(format[i]) && format[i + 1] != '\0') || format[i]
-				!= '\0')
-	{
-		return (-1);
-	}
-	return (0);
+	if (valid_specifier(format[0]) || format[0] == '%')
+		return (0);
+	/*Invalid use of '%'*/
+	return (-1);
 }

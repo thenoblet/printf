@@ -18,5 +18,5 @@
 
 void write_string(const char *str, size_t len)
 {
-	write(STDOUT_FILENO, str, len);
+	write(1, str, len);
 }
