@@ -28,7 +28,7 @@ format_spec *format_spec_array(void)
 		{'i', handle_int},
 		{'c', handle_char},
 		/* TODO: add more specifiers and their handler funcs */
-		{'\0', NULL}
+		/* {'\0', NULL} */
 
 	};
 

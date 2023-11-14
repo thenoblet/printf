@@ -10,7 +10,8 @@
  * Description: This function handles '%' format specifier. It simply appends
  * a '%' character to a given string buffer.
  *
- * Return: The number of characters added to the buffer.
+ * Return: The number of characters added to the buffer
+ *
  */
 int handle_percent(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, __attribute__((unused)) va_list args)

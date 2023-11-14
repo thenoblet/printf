@@ -27,16 +27,16 @@ int _printf(const char *format, ...)
 	/* Process format string and store the result in the buffer */
 	char_count = process_format(&buffer, format, args);
 
-	va_end(args);
-	if (char_count == -1)
+	/* if (char_count < 0)
 	{
 		safefree(buffer.string);
-		return (-1);
-	}
+		return (1);
+	} */
 
 	write_string(buffer.string, char_count);
 
 	safefree(buffer.string);
-
+	/*printf("PrintCount: %d\n", char_count);*/
+	va_end(args);
 	return (char_count);
 }
