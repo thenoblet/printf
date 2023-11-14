@@ -31,5 +31,6 @@ int get_func(const char specifier, format_spec *spec,
 	append_char(buffer, specifier);
 
 	char_count = buffer->length - length;
+	/*("char_count: %i", char_count);*/
 	return (char_count);
 }

@@ -33,7 +33,8 @@ void append_char(string_buffer *buffer, char ch)
 	buffer->length++;
 	buffer->string[buffer->length] = '\0';
 
-	/* printf("After appending '%c': %s\n", ch, buffer->string); */
+	/*rintf("After appending '%c': %s\n", ch, buffer->string);
+	printf("Buffer length: %ld\n", buffer->length); */
 }
 
 

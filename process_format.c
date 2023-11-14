@@ -11,18 +11,19 @@
  */
 int process_format(string_buffer *buffer, const char *format, va_list args)
 {
-	int i = 0, num_chars = 0, count = 0;
+	int i, num_chars = 0, count = 0;
 
 	format_spec *spec = format_spec_array();
 
 	if (spec == NULL)
 		return (-1);
-	while (format[i] != '\0')
+
+	for (i = 0; format[i] != '\0'; ++i)
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			if (lone_percent(&format[i]) == 1)
+			if ((!*format || *(format + 1) == '\0') && *format == '%')
 			{
 				safefree(spec);
 				return (-1);
@@ -36,7 +37,6 @@ int process_format(string_buffer *buffer, const char *format, va_list args)
 			append_char(buffer, format[i]);
 			count++;
 		}
-		i++;
 	}
 	/* Write the processed string to stdout */
 	write_string(buffer->string, count);
@@ -56,7 +56,7 @@ int valid_specifier(char ch)
 {
 	size_t i;
 
-	const char valid_specs[] = "ibducsSrRxXop";
+	const char valid_specs[] = "%ibducsSrRxXop";
 
 	for (i = 0; valid_specs[i] != '\0'; ++i)
 	{
@@ -77,6 +77,8 @@ int lone_percent(const char *format)
 {
 	if (valid_specifier(format[0]) || format[0] == '%')
 		return (0);
+
 	/*Invalid use of '%'*/
-	return (1);
+	return (-1);
 }
+
