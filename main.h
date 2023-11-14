@@ -5,10 +5,12 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 #define STDOUT_FILENO 1
+#define VALID_SPECIFIER "ibducsSrRxXop"
 
 /**
  * struct dynamic_string - Structure to hold a dynamic string

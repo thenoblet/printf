@@ -22,14 +22,7 @@ int process_format(string_buffer *buffer, const char *format, va_list args)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == '\0')
-			{
-				/*Handle a lone percent sign*/
-				append_char(buffer, '%');
-				count++;
-				break;
-			}
-			if (lone_percent(&format[i]) == -1)
+			if (lone_percent(&format[i]) == 1)
 			{
 				safefree(spec);
 				return (-1);
@@ -63,12 +56,12 @@ int valid_specifier(char ch)
 {
 	size_t i;
 
-	const char valid_specs[] = "%ibducsSrRxXop";
+	const char valid_specs[] = "ibducsSrRxXop";
 
 	for (i = 0; valid_specs[i] != '\0'; ++i)
 	{
 		if (valid_specs[i] == ch)
-			return (1); /* Found a valid specifier */
+			return (-1); /* Found a valid specifier */
 	}
 
 	return (0);
@@ -85,5 +78,5 @@ int lone_percent(const char *format)
 	if (valid_specifier(format[0]) || format[0] == '%')
 		return (0);
 	/*Invalid use of '%'*/
-	return (-1);
+	return (1);
 }
