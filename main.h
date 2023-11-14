@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <limits.h>
 
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
@@ -73,12 +74,20 @@ int handle_percent(const format_spec *spec, string_buffer *buffer,
 		va_list args);
 int handle_int(const format_spec *spec, string_buffer *buffer, va_list args);
 int handle_char(const format_spec *spec, string_buffer *buffer, va_list args);
+int handle_binary(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+
+/* number conversion functions */
+void _itob(int num, char binary[]);
+
 
 /* custom string functions */
 void *_memcpy(void *dest, const void *src, size_t n);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
+void reverse(char str[], int length);
 
+/* memory alloc. functions */
 void *_realloc(void *ptr, size_t old_size, size_t new_size);
 
 /* custom memory deallocation */
