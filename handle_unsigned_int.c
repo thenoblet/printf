@@ -10,7 +10,7 @@
  * Return: The number of characters added to the buffer
  */
 
-int handle_unsgnd(__attribute__((unused)) const format_spec * spec,
+int handle_unsigned(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, va_list args)
 {
 	unsigned int un = va_arg(args, unsigned int);
