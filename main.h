@@ -74,6 +74,15 @@ int handle_percent(const format_spec *spec, string_buffer *buffer,
 int handle_int(const format_spec *spec, string_buffer *buffer, va_list args);
 int handle_char(const format_spec *spec, string_buffer *buffer, va_list args);
 
+/*integer specifier handling functions*/
+int handle_unsgnd(__attribute__((unused)) const format_spec * spec,
+                string_buffer *buffer, va_list args);
+int handle_octal(__attribute__((unused)) const format_spec * spec,
+                string_buffer *buffer, va_list args);
+int handle_x(__attribute__((unused)) const format_spec * spec,
+                string_buffer * buffer, va_list args);
+int handle_X(__attribute__((unused)) const format_spec * spec,
+                string_buffer *buffer, va_list args);
 /* custom string functions */
 void *_memcpy(void *dest, const void *src, size_t n);
 int _strlen(char *s);
