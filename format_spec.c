@@ -31,6 +31,7 @@ format_spec *format_spec_array(void)
 		{'o', handle_octal},
 		{'x', handle_x},
 		{'X', handle_X},
+		{'p', handle_pointer},
 		/* TODO: add more specifiers and their handler funcs */
 		/* {'\0', NULL} */
 
