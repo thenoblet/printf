@@ -13,13 +13,10 @@ int handle_pointer(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, va_list args)
 {
 	void *p = va_arg(args, void *);
-	int len = snprintf(buffer->string + buffer->length,
-			buffer->capacity - buffer->length, "%p", p);
+	char address_str[20];/*test size*/
 
-	if (len < 0)
-	{
-		return (0);
-	}
-	buffer->length += len;/*update buffer length*/
-	return (len);
+	snprintf(address_str, sizeof(address_str), "%p", p);/*convert p address*/
+	append_string(buffer, address_str);/*append address string*/
+
+	return (_strlen(address_str));/*return length of address*/
 }

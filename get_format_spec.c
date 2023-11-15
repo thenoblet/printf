@@ -26,6 +26,10 @@ int get_func(const char specifier, format_spec *spec,
 			return (spec[i].func(&spec[i], buffer, args));
 		}
 	}
+	if (specifier == 'p')
+	{
+		return (spec[i].func(&spec[i], buffer, args));/*last specifier*/
+	}
 
 	append_char(buffer, '%');
 	append_char(buffer, specifier);
