@@ -12,6 +12,7 @@
 #define BUFF_SIZE 1024
 #define STDOUT_FILENO 1
 #define VALID_SPECIFIER "ibducsSrRxXop"
+#define IS_PRINTABLE(char) ((char) >= 32 && (char) < 127)
 
 /**
  * struct dynamic_string - Structure to hold a dynamic string
