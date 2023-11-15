@@ -81,6 +81,15 @@ int handle_binary(const format_spec *spec, string_buffer *buffer,
 void _itob(size_t num, char binary[]);
 
 
+/*integer specifier handling functions*/
+int handle_unsgnd(__attribute__((unused)) const format_spec * spec,
+                string_buffer *buffer, va_list args);
+int handle_octal(__attribute__((unused)) const format_spec * spec,
+                string_buffer *buffer, va_list args);
+int handle_hex_lower(__attribute__((unused)) const format_spec * spec,
+                string_buffer * buffer, va_list args);
+int handle_hex_upper(__attribute__((unused)) const format_spec * spec,
+                string_buffer *buffer, va_list args);
 /* custom string functions */
 void *_memcpy(void *dest, const void *src, size_t n);
 int _strlen(char *s);
