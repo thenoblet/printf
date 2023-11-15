@@ -80,7 +80,6 @@ int handle_binary(const format_spec *spec, string_buffer *buffer,
 /* number conversion functions */
 void _itob(size_t num, char binary[]);
 
-
 /*integer specifier handling functions*/
 int handle_unsgnd(__attribute__((unused)) const format_spec * spec,
                 string_buffer *buffer, va_list args);
