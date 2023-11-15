@@ -10,7 +10,7 @@
  * Return: The number of characters added to the buffer.
  */
 int handle_x(__attribute__((unused)) const format_spec * spec,
-		string_buffer * buffer, va_list args)
+		string_buffer *buffer, va_list args)
 {
 	unsigned int x = va_arg(args, unsigned int);
 	char num_str[20];
