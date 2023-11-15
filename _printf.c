@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 	write_string(buffer.string, char_count);
 
 	safefree(buffer.string);
-	/*printf("PrintCount: %d\n", char_count);*/
+
 	va_end(args);
 	return (char_count);
 }

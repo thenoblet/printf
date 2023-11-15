@@ -27,10 +27,7 @@ format_spec *format_spec_array(void)
 		{'d', handle_int},
 		{'i', handle_int},
 		{'c', handle_char},
-		{'u', handle_unsgnd},
-		{'o', handle_octal},
-		{'x', handle_hex_lower},
-		{'X', handle_hex_upper},
+		{'b', handle_binary}
 		/* TODO: add more specifiers and their handler funcs */
 		/* {'\0', NULL}*/
 
