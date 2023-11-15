@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * handle_hex_lower - Handles the lowercase hex format specifier '%x'.
+ * handle_x - Handles the lowercase hex format specifier '%x'.
  *
  * @spec: The format specifier into
  * @args: The va_list containing the variable argument.
@@ -9,7 +9,7 @@
  *
  * Return: The number of characters added to the buffer.
  */
-int handle_hex_lower(__attribute__((unused)) const format_spec * spec,
+int handle_x(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, va_list args)
 {
 	unsigned int x = va_arg(args, unsigned int);

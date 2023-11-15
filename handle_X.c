@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * handle_hex_upper - Handles the uppercase hex format specifier '%X'.
+ * handle_X - Handles the uppercase hex format specifier '%X'.
  *
  * @spec: The format specifier info.
  * @args: The va_list containing the variable arguments.
@@ -9,7 +9,7 @@
  *
  * Return: The number of characters added to the buffer.
  */
-int handle_hex_upper(__attribute__((unused)) const format_spec * spec,
+int handle_X(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, va_list args)
 {
 	unsigned int X = va_arg(args, unsigned int);
