@@ -76,19 +76,17 @@ int handle_int(const format_spec *spec, string_buffer *buffer, va_list args);
 int handle_char(const format_spec *spec, string_buffer *buffer, va_list args);
 int handle_binary(const format_spec *spec, string_buffer *buffer,
 		va_list args);
+int handle_unsigned(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_octal(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_hex_lower(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_hex_upper(const format_spec *spec, string_buffer *buffer,
+		va_list args);
 
 /* number conversion functions */
 void _itob(size_t num, char binary[]);
-
-/*integer specifier handling functions*/
-int handle_unsigned(__attribute__((unused)) const format_spec * spec,
-                string_buffer *buffer, va_list args);
-int handle_octal(__attribute__((unused)) const format_spec * spec,
-                string_buffer *buffer, va_list args);
-int handle_hex_lower(__attribute__((unused)) const format_spec * spec,
-                string_buffer * buffer, va_list args);
-int handle_hex_upper(__attribute__((unused)) const format_spec * spec,
-                string_buffer *buffer, va_list args);
 
 /* custom string functions*/
 void *_memcpy(void *dest, const void *src, size_t n);

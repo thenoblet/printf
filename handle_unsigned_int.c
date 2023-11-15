@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * handle_unsgnd - Handles unsigned interger format specifier '%u'.
+ * handle_unsigned - Handles unsigned interger format specifier '%u'.
  *
  * @spec: The format specifier information.
  * @args: The va_list containing the variable arguments.
