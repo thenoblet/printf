@@ -19,13 +19,13 @@
 int handle_binary(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, va_list args)
 {
-	char string_count[255];
+	char string_count[65];
 	int char_count;
 
-	unsigned int n = va_arg(args, unsigned int);
+	unsigned int num = va_arg(args, unsigned int);
 	size_t length = buffer->length;
 
-	_itob(n, string_count);
+	_itob(num, string_count);
 	append_string(buffer, string_count);
 
 	char_count = buffer->length - length;

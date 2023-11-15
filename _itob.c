@@ -5,49 +5,62 @@
  * and stores it in a character array.
  *
  * @num: The integer to be converted.
- * @binary: The character array to store the binary representation.
+ * @str: The character array to store the binary representation.
  */
 
-void _itob(int num, char binary[])
+void _itob(size_t num, char str[])
 {
-	int i = 0;
+	size_t i = 0;
+
+	if (num == 0)
+	{
+		str[i++] = '0';
+	}
 
 	/* Process individual bits */
 	while (num > 0)
 	{
-		binary[i++] = (num % 2) + '0';
-		num = num / 2;
+		if ((num % 2) > 9)
+		{
+			str[i++] = ('a' + ((num % 2) - 10));
+		}
+		else
+		{
+			str[i++] = ((num % 2) + '0');
+		}
+		num /= 2;
 	}
 
 	/* Null-terminate the string */
-	binary[i] = '\0';
+	str[i] = '\0';
 
 	/* Reverse the string */
-	reverse(binary, i);
+	reverse(str, i);
 }
 
 /**
  * reverse - Reverses the order of characters in a character array.
  *
  * @str: The character array to be reversed.
- * @length: The length of the character array.
+ * @len: The length of the character array.
  */
 
-void reverse(char str[], int length)
+void reverse(char *str, size_t len)
 {
-	int start = 0;
-	int end = length - 1;
-	char temp;
+	size_t i, j;
+	char ch;
 
-	while (start < end)
+	if (!str)
 	{
-		/* Swap characters at start and end */
-		temp = str[start];
-		str[start] = str[end];
-		str[end] = temp;
+		return;
+	}
 
-		/* move towards center */
-		start++;
-		end--;
+	for (i = 0, j = len / 2; i < j; i++)
+	{
+		ch = str[i];
+
+		/* swap values */
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = ch;
 	}
 }
