@@ -35,7 +35,12 @@ format_spec *format_spec_array(void)
 		{'X', handle_X},
 		{'p', handle_pointer},
 		/* TODO: add more specifiers and their handler funcs */
+<<<<<<< HEAD
 		/* {'\0', NULL} */
+=======
+		/* {'\0', NULL}*/
+
+>>>>>>> 99c3cf38545999cb7e2a4b61ad817f988fea991f
 	};
 
 	/* Cal specifiers array size */

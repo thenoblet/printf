@@ -38,22 +38,23 @@ int handle_str(__attribute__((unused)) const format_spec * spec, string_buffer
 	return (char_count);
 }
 
+
 int handle_custom_string(__attribute__((unused)) const format_spec *spec,
 		string_buffer *buffer, va_list)
 {
-	char hex_str[5];
+	char hex_str[10];
 	char *str, *dup_str;
-	int characters_added;
-	size_t initial_length, i;
+	int char_count;
+	size_t length, i;
 
 	str = va_arg(args, char *);
-	initial_length = buffer->length;
+	ength = buffer->length;
 
 	if (str)
 	{
 		dup_str = _strdup(str);
 		if (dup_str == NULL)
-			return (-1); /* memory allocation failed, nothing is written */
+			return (-1);
 
 		for (i = 0; dup_str[i] != '\0'; i++)
 		{
@@ -67,13 +68,16 @@ int handle_custom_string(__attribute__((unused)) const format_spec *spec,
 				append_char(buffer, dup_str[i]);
 			}
 		}
-		safe_free(dup_str);
+		safefree(dup_str);
 	}
 	else
 	{
 		append_string(buffer, "(null)");
 	}
 
-	characters_added = buffer->length - initial_length;
-	return (characters_added);
+	char_count = buffer->length - length;
+	return (char_count);
 }
+
+
+
