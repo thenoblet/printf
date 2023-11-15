@@ -80,6 +80,19 @@ int handle_binary(const format_spec *spec, string_buffer *buffer,
 /* number conversion functions */
 void _itob(size_t num, char binary[]);
 
+/*integer specifier handling functions*/
+int handle_unsgnd(__attribute__((unused)) const format_spec * spec,
+                string_buffer *buffer, va_list args);
+int handle_octal(__attribute__((unused)) const format_spec * spec,
+                string_buffer *buffer, va_list args);
+int handle_x(__attribute__((unused)) const format_spec * spec,
+                string_buffer * buffer, va_list args);
+int handle_X(__attribute__((unused)) const format_spec * spec,
+		string_buffer *buffer, va_list args);
+
+/*pointer specifier handling function*/
+int handle_pointer(__attribute__((unused)) const format_spec *spec,
+		string_buffer *buffer, va_list args);
 
 /* custom string functions */
 void *_memcpy(void *dest, const void *src, size_t n);
