@@ -7,7 +7,7 @@
  * @args: The va_list containing the variable arguments.
  * @buffer: The sting buffer to hold the formatted string.
  *
- * Return: The number of characters added to the buffer.
+ * Return: The number of characters added to the buffer
  */
 int handle_unsgnd(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, va_list args)

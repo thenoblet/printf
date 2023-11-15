@@ -5,7 +5,7 @@
  *
  * @spec: The format specifier into
  * @args: The va_list containing the variable argument.
- * @buffer: The string buffer to hold the formatted string.
+ * @buffer: The string buffer to hold the formatted string
  *
  * Return: The number of characters added to the buffer.
  */

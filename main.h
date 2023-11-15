@@ -83,7 +83,7 @@ int handle_hex_lower(__attribute__((unused)) const format_spec * spec,
                 string_buffer * buffer, va_list args);
 int handle_hex_upper(__attribute__((unused)) const format_spec * spec,
                 string_buffer *buffer, va_list args);
-/* custom string functions */
+/* custom string functions*/
 void *_memcpy(void *dest, const void *src, size_t n);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
