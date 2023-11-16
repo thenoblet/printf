@@ -54,7 +54,7 @@ int handle_custom_string(__attribute__((unused)) const format_spec *spec,
 {
 	char *str, *str_dup;
 
-	char hex_buffer[10];
+	char hex_buffer[5];
 	int char_count;
 	size_t length, i;
 
