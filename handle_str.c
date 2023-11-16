@@ -38,37 +38,51 @@ int handle_str(__attribute__((unused)) const format_spec * spec, string_buffer
 	return (char_count);
 }
 
+/*
+ * handle_custom_string - Custom string formatting function
+ *
+ * @spec: Unused format specification (Betty style attribute)
+ * @buffer: String buffer to store the formatted string
+ * @args: Variable argument list
+ *
+ * This function handles custom string formatting by converting
+ * non-printable characters to their hexadecimal representation.
+ */
 
 int handle_custom_string(__attribute__((unused)) const format_spec *spec,
-		string_buffer *buffer, va_list)
+		string_buffer *buffer, va_list args)
 {
-	char hex_str[10];
-	char *str, *dup_str;
+	char hex_buffer[10];
+	char *str, *str_dup;
 	int char_count;
+
 	size_t length, i;
 
 	str = va_arg(args, char *);
-	ength = buffer->length;
+	length = buffer->length;
 
 	if (str)
 	{
-		dup_str = _strdup(str);
-		if (dup_str == NULL)
-			return (-1);
-
-		for (i = 0; dup_str[i] != '\0'; i++)
+		str_dup = _strdup(str); /* Duplicate the string */
+		if (str_dup == NULL)
 		{
-			if (is_non_print(dup_str[i]))
+			return (-1);
+		}
+
+		for (i = 0; str_dup[i] != '\0'; i++)
+		{
+			if (!IS_PRINTABLE(str_dup[i]))
 			{
-				char_to_hex(hex_str, dup_str[i]);
-				append_string(buffer, hex_str);
+				/* Convert non-printable character to hex */
+				char_to_hex(hex_buffer, str_dup[i]);
+				append_string(buffer, hex_buffer);
 			}
 			else
 			{
-				append_char(buffer, dup_str[i]);
+				append_char(buffer, str_dup[i]);
 			}
 		}
-		safefree(dup_str);
+		safefree(str_dup);
 	}
 	else
 	{
@@ -80,4 +94,15 @@ int handle_custom_string(__attribute__((unused)) const format_spec *spec,
 }
 
 
+void char_to_hex(char *str, unsigned char ch) 
+{
+	 /* Set the first two characters to '\x' */
+	str[0] = '\\';
+	str[1] = 'x';
 
+	/* Convert the higher 4 bits to hex */
+	str[2] = (ch >> 4) < 10 ? (ch >> 4) + '0' : (ch >> 4) - 10 + 'A';
+	
+	/* Convert the lower 4 bits to hex */
+	str[3] = (ch & 0x0F) < 10 ? (ch & 0x0F) + '0' : (ch & 0x0F) - 10 + 'A';
+}

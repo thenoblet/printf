@@ -77,34 +77,25 @@ int handle_int(const format_spec *spec, string_buffer *buffer, va_list args);
 int handle_char(const format_spec *spec, string_buffer *buffer, va_list args);
 int handle_binary(const format_spec *spec, string_buffer *buffer,
 		va_list args);
+int handle_unsigned(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_octal(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_hex_lower(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_hex_upper(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_custom_string(const format_spec *spec, string_buffer *buffer,
+		va_list args);
 
 /* number conversion functions */
 void _itob(size_t num, char binary[]);
-
-/*integer specifier handling functions*/
-int handle_unsgnd(__attribute__((unused)) const format_spec * spec,
-                string_buffer *buffer, va_list args);
-int handle_octal(__attribute__((unused)) const format_spec * spec,
-                string_buffer *buffer, va_list args);
-int handle_x(__attribute__((unused)) const format_spec * spec,
-                string_buffer * buffer, va_list args);
-
-int handle_X(__attribute__((unused)) const format_spec * spec,
-		string_buffer *buffer, va_list args);
-
-/*pointer specifier handling function*/
-int handle_pointer(__attribute__((unused)) const format_spec *spec,
-		string_buffer *buffer, va_list args);
-
-/* custom string functions */
-int handle_hex_upper(__attribute__((unused)) const format_spec * spec,
-                string_buffer *buffer, va_list args);
 
 /* custom string functions*/
 void *_memcpy(void *dest, const void *src, size_t n);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
-void reverse(char str[], size_t len);
+void reverse(char *str, size_t len);
 char *_strdup(char *str);
 
 /* memory alloc. functions */

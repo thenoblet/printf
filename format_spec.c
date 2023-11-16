@@ -30,17 +30,13 @@ format_spec *format_spec_array(void)
 		{'b', handle_binary},
 		{'S', handle_custom_string}
 		{'u', handle_unsgnd},
-		{'o', handle_octal},
-		{'x', handle_x},
-		{'X', handle_X},
 		{'p', handle_pointer},
+		{'u', handle_unsigned},
+		{'o', handle_octal},
+		{'x', handle_hex_lower},
+		{'X', handle_hex_upper}
 		/* TODO: add more specifiers and their handler funcs */
-<<<<<<< HEAD
 		/* {'\0', NULL} */
-=======
-		/* {'\0', NULL}*/
-
->>>>>>> 99c3cf38545999cb7e2a4b61ad817f988fea991f
 	};
 
 	/* Cal specifiers array size */
