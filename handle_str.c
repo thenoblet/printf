@@ -38,18 +38,19 @@ int handle_str(__attribute__((unused)) const format_spec * spec, string_buffer
 	return (char_count);
 }
 
-/*
+/**
  * handle_custom_string - Custom string formatting function
  *
- * @spec: Unused format specification (Betty style attribute)
+ * @spec: Format specification (unused in this implementation)
  * @buffer: String buffer to store the formatted string
  * @args: Variable argument list
  *
  * This function handles custom string formatting by converting
  * non-printable characters to their hexadecimal representation.
+ *
+ * Return: The number of characters added to the buffer.
  */
-
-int handle_custom_string(__attribute__((unused)) const format_spec *spec,
+int handle_custom_string(__attribute__((unused)) const format_spec * spec,
 		string_buffer *buffer, va_list args)
 {
 	char *str, *str_dup;
@@ -103,7 +104,7 @@ int handle_custom_string(__attribute__((unused)) const format_spec *spec,
  * This function converts a character to its hexadecimal representation and
  * stores it in the provided buffer.
  */
-void char_to_hex(char *str, unsigned char ch) 
+void char_to_hex(char *str, unsigned char ch)
 {
 	 /* Set the first two characters to '\x' */
 	str[0] = '\\';
@@ -111,7 +112,7 @@ void char_to_hex(char *str, unsigned char ch)
 
 	/* Convert the higher 4 bits to hex */
 	str[2] = (ch >> 4) < 10 ? (ch >> 4) + '0' : (ch >> 4) - 10 + 'A';
-	
+
 	/* Convert the lower 4 bits to hex */
 	str[3] = (ch & 0x0F) < 10 ? (ch & 0x0F) + '0' : (ch & 0x0F) - 10 + 'A';
 }
