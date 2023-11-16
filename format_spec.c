@@ -28,8 +28,7 @@ format_spec *format_spec_array(void)
 		{'i', handle_int},
 		{'c', handle_char},
 		{'b', handle_binary},
-		{'S', handle_custom_string}
-		{'u', handle_unsgnd},
+		{'S', handle_custom_string},
 		{'p', handle_pointer},
 		{'u', handle_unsigned},
 		{'o', handle_octal},

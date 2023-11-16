@@ -52,10 +52,10 @@ int handle_str(__attribute__((unused)) const format_spec * spec, string_buffer
 int handle_custom_string(__attribute__((unused)) const format_spec *spec,
 		string_buffer *buffer, va_list args)
 {
-	char hex_buffer[10];
 	char *str, *str_dup;
-	int char_count;
 
+	char hex_buffer[10];
+	int char_count;
 	size_t length, i;
 
 	str = va_arg(args, char *);
@@ -69,7 +69,7 @@ int handle_custom_string(__attribute__((unused)) const format_spec *spec,
 			return (-1);
 		}
 
-		for (i = 0; str_dup[i] != '\0'; i++)
+		for (i = 0; str_dup[i] != '\0'; ++i)
 		{
 			if (!IS_PRINTABLE(str_dup[i]))
 			{
@@ -79,6 +79,7 @@ int handle_custom_string(__attribute__((unused)) const format_spec *spec,
 			}
 			else
 			{
+				/* Append printable character to the buffer */
 				append_char(buffer, str_dup[i]);
 			}
 		}
