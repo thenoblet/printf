@@ -12,6 +12,7 @@
 #define BUFF_SIZE 1024
 #define STDOUT_FILENO 1
 #define VALID_SPECIFIER "ibducsSrRxXop"
+#define IS_PRINTABLE(ch) ((ch) >= 32 && (ch) < 127)
 
 /**
  * struct dynamic_string - Structure to hold a dynamic string
@@ -84,6 +85,8 @@ int handle_hex_lower(const format_spec *spec, string_buffer *buffer,
 		va_list args);
 int handle_hex_upper(const format_spec *spec, string_buffer *buffer,
 		va_list args);
+int handle_custom_string(const format_spec *spec, string_buffer *buffer,
+		va_list args);
 int handle_pointer(const format_spec *spec, string_buffer *buffer,
 		va_list args);
 
@@ -94,7 +97,9 @@ void _itob(size_t num, char binary[]);
 void *_memcpy(void *dest, const void *src, size_t n);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
-void reverse(char str[], size_t len);
+void reverse(char *str, size_t len);
+char *_strdup(char *str);
+void char_to_hex(char *str, unsigned char ch);
 
 /* memory alloc. functions */
 void *_realloc(void *ptr, size_t old_size, size_t new_size);
