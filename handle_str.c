@@ -95,6 +95,14 @@ int handle_custom_string(__attribute__((unused)) const format_spec *spec,
 }
 
 
+/**
+ * char_to_hex - Converts a character to its hexadecimal representation
+ * @str: Buffer to store the hexadecimal representation
+ * @ch: Character to convert
+ *
+ * This function converts a character to its hexadecimal representation and
+ * stores it in the provided buffer.
+ */
 void char_to_hex(char *str, unsigned char ch) 
 {
 	 /* Set the first two characters to '\x' */
