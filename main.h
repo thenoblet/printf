@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <limits.h>
 
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
@@ -73,24 +74,29 @@ int handle_percent(const format_spec *spec, string_buffer *buffer,
 		va_list args);
 int handle_int(const format_spec *spec, string_buffer *buffer, va_list args);
 int handle_char(const format_spec *spec, string_buffer *buffer, va_list args);
+int handle_binary(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_unsigned(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_octal(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_hex_lower(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_hex_upper(const format_spec *spec, string_buffer *buffer,
+		va_list args);
+int handle_pointer(const format_spec *spec, string_buffer *buffer,
+		va_list args);
 
-/*integer specifier handling functions*/
-int handle_unsgnd(__attribute__((unused)) const format_spec * spec,
-                string_buffer *buffer, va_list args);
-int handle_octal(__attribute__((unused)) const format_spec * spec,
-                string_buffer *buffer, va_list args);
-int handle_x(__attribute__((unused)) const format_spec * spec,
-                string_buffer * buffer, va_list args);
-int handle_X(__attribute__((unused)) const format_spec * spec,
-                string_buffer *buffer, va_list args);
-/*pointer specifier handling function*/
-int handle_pointer(__attribute__((unused)) const format_spec *spec,
-                    string_buffer *buffer, va_list args);
-/* custom string functions */
+/* number conversion functions */
+void _itob(size_t num, char binary[]);
+
+/* custom string functions*/
 void *_memcpy(void *dest, const void *src, size_t n);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
+void reverse(char str[], size_t len);
 
+/* memory alloc. functions */
 void *_realloc(void *ptr, size_t old_size, size_t new_size);
 
 /* custom memory deallocation */
