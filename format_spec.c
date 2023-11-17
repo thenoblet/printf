@@ -34,6 +34,7 @@ format_spec *format_spec_array(void)
 		{'o', handle_octal},
 		{'x', handle_hex_lower},
 		{'X', handle_hex_upper},
+		{'r', handle_reverse},
 		/* TODO: add more specifiers and their handler funcs */
 		/* {'\0', NULL} */
 	};
