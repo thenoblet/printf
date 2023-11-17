@@ -18,6 +18,7 @@ int get_func(const char specifier, format_spec *spec,
 	unsigned int i;
 	size_t length = buffer->length;
 	int char_count;
+	int j;
 
 	for (i = 0; spec[i].specifier != '\0'; ++i)
 	{
@@ -29,6 +30,18 @@ int get_func(const char specifier, format_spec *spec,
 	if (specifier == 'p')
 	{
 		return (spec[i].func(&spec[i], buffer, args));/*last specifier*/
+	}
+	if (specifier == 'r')
+	{
+		char *str = va_arg(args, char *);
+		size_t str_length = _strlen(str);
+
+		for (j = str_length - 1; j >= 0; --j)
+		{
+			append_char(buffer, str[j]);
+		}
+		char_count = buffer->length - length;
+		return (char_count);
 	}
 
 	append_char(buffer, '%');
