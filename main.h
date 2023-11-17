@@ -89,6 +89,8 @@ int handle_custom_string(const format_spec *spec, string_buffer *buffer,
 		va_list args);
 int handle_pointer(const format_spec *spec, string_buffer *buffer,
 		va_list args);
+int handle_reverse(const format_spec *spec, string_buffer *buffer,
+		va_list args);
 
 /* number conversion functions */
 void _itob(size_t num, char binary[]);
