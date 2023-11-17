@@ -69,6 +69,9 @@ format_spec *format_spec_array();
 /* _printf function prototype */
 int _printf(const char *format, ...);
 
+/* ROT13 transformation function */
+char *rot13(const char *input);
+
 /* specifier handling functions */
 int handle_str(const format_spec *spec, string_buffer *buffer, va_list args);
 int handle_percent(const format_spec *spec, string_buffer *buffer,
@@ -91,6 +94,8 @@ int handle_pointer(const format_spec *spec, string_buffer *buffer,
 		va_list args);
 int handle_reverse(const format_spec *spec, string_buffer *buffer,
 		va_list args);
+int handle_rot13(const format_spec *spec, string_buffer *buffer,
+		va_list args);
 
 /* number conversion functions */
 void _itob(size_t num, char binary[]);
@@ -102,6 +107,10 @@ int _strcmp(char *s1, char *s2);
 void reverse(char *str, size_t len);
 char *_strdup(char *str);
 void char_to_hex(char *str, unsigned char ch);
+
+/* character testing functions */
+int _isalpha(int c);
+int _islower(int c);
 
 /* memory alloc. functions */
 void *_realloc(void *ptr, size_t old_size, size_t new_size);
